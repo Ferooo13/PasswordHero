@@ -1,0 +1,172 @@
+:root {
+  --bg: #0b0f1a;
+  --card-bg: #161b2c;
+  --text: #f8fafc;
+  --primary: #6366f1;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --border: #2d334a;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.analyzer-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+  text-align: center;
+}
+.subtitle {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* --- Input con Ojo --- */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 1.1rem 3.5rem 1.1rem 1.2rem;
+  background: #0b0f1a;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.toggle-btn:hover {
+  color: var(--primary);
+}
+
+/* --- Medidor --- */
+.meter-container {
+  margin: 1.5rem 0 0.5rem 0;
+  background: #2d334a;
+  height: 6px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  transition:
+    width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.4s;
+}
+
+.status-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+/* --- Requisitos --- */
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.check-item {
+  font-size: 0.8rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+}
+
+.check-item i {
+  margin-right: 8px;
+  font-size: 0.7rem;
+}
+.check-item.active {
+  color: #cbd5e1;
+}
+.check-item.active i {
+  color: var(--success);
+}
+
+/* --- Botón Sugerencia (AJAX) --- */
+.btn-suggest {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 2px dashed var(--border);
+  color: #94a3b8;
+  border-radius: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-suggest:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.btn-suggest i.loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
